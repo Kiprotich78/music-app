@@ -22,7 +22,7 @@ const Header = ({ addSidebar }) => {
         <button className="py-2 px-3 text-xl md:py-3 md:px-4 md:text-2xl rounded-[15px] hover:bg-slate-200 focus:bg-gray-300 transition-all">
           Log In
         </button>
-      </Link>
+      </Link to >
     </div>
   </div>
 
