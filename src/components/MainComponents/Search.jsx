@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Search = () => {
+const Search = ({setMusic}) => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchParam, setSearchParam] = useState("");
 
@@ -26,7 +26,6 @@ const Search = () => {
       const result = await response.json();
       const data = result.tracks.items;
       setSearchResults(data);
-      console.log(data);
 
     } catch (error) {
       console.error(error);
@@ -57,8 +56,8 @@ const Search = () => {
         <input onChange={handleSearchParam} type="text" placeholder='Search for a song...' className='w-3/4 max-w-[700px] outline-none py-2 px-4 rounded-md block m-auto focus:border-none active:outline-none' />
       </form>
 
-      <div className='max-h-full flex-1 overflow-auto'>
-        <div class="antialiased font-sans">
+      <div className='flex-1 overflow-y-auto'>
+        <div class="antialiased font-sans w-full">
             <div class="container mx-auto px-4 sm:px-8">
                 <div class="py-8">
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -89,9 +88,8 @@ const Search = () => {
 
                                   {
                                      searchResults.length && searchResults.map((item, index) => {
-                                        console.log(item.data.albumOfTrack.coverArt.sources[1].url);
                                       return (
-                                      <tr>
+                                      <tr onClick={e => setMusic(item.data.id)} className='cursor-pointer hover:bg-gray-400' id={item.data.id}>
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                         {index + 1}
                                       </td>
