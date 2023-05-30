@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from './MainComponents/Header';
 
-const Main = () => {
+const Main = ({addSidebar}) => {
   return (
     <main>
-      <Header />
+      <Header addSidebar={addSidebar}/>
     </main>
   )
 }
