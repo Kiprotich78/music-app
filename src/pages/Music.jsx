@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Main from '../components/Main';
 import SideBar from '../components/SideBar';
 const Music = () => {
-  const [showSideBar, setSidebar] = useState(true);
+  const [showSideBar, setSidebar] = useState(false);
 
   const addSidebar = ()=>{
     setSidebar(true);
