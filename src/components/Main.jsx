@@ -8,7 +8,7 @@ const Main = ({addSidebar}) => {
       <section className='h-[7vh]'>
         <Header addSidebar={addSidebar}/>
       </section>
-      <section className='flex-1'>
+      <section className='max-h-[93vh]'>
         <Body />
       </section>
     </main>
