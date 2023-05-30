@@ -3,17 +3,10 @@ import React, { useEffect, useState } from 'react'
 const Player = ({music}) => {
   const [play, setPlay] = useState(true);
   const [track, setTrack] = useState("");
-
-  const playMusic = (music)=>{
-    if(track){
-      track.pause();
-    }
-
-    const audio = new Audio(music);
-    audio.play();
-
-    setTrack(audio);
-  }
+  const [results, setResults] = useState({})
+  const [duration, setDuration] = useState("");
+  const [currentTime, setCurrentTime] = useState("")
+  const [barPercentage, setBarPercentage] = useState(0);
 
   const pauseAudio = ()=>{
     track.pause();
@@ -24,6 +17,49 @@ const Player = ({music}) => {
     track.play();
     setPlay(true);
   }
+
+  const playMusic = (music)=>{
+    if(track){
+      track.pause();
+    }
+
+    const audio = new Audio(music);
+    audio.play();
+    setPlay(true);
+
+    setTrack(audio);
+
+   
+    audio.ontimeupdate = () => {
+      const duration = audio.duration.toFixed(0);
+      const durminutes = Math.floor(duration / 60);
+      const durseconds = duration % 60;
+      setDuration(`${durminutes < 10 ? "0" + durminutes: durminutes}:${durseconds < 10 ? "0"+durseconds : durseconds}`)
+      
+      const currentTime = audio.currentTime.toFixed(0);
+
+      const minutes = Math.floor(currentTime / 60);
+      const seconds = currentTime % 60;
+
+      setBarPercentage(Math.floor((currentTime / duration) * 100));
+      
+      setCurrentTime(`${minutes < 10 ? "0" + minutes: minutes}:${seconds < 10 ? "0"+seconds : seconds}`);
+
+      if(currentTime === duration){
+        pauseAudio();
+      }
+
+
+
+      
+      // You can perform additional actions based on the current time or duration
+      // ...
+    };
+
+  }
+
+ 
+
 
   const getTrack = async ()=>{
 
@@ -38,9 +74,10 @@ const Player = ({music}) => {
 
     try {
       const response = await fetch(url, options);
-      const result = await response.json();
-      console.log(result);
-      playMusic(result.tracks[0].preview_url);
+      const res = await response.json();
+      console.log(res);
+      setResults(res);
+      playMusic(res.tracks[0].preview_url);
     } catch (error) {
       console.error(error);
     }
@@ -58,16 +95,16 @@ const Player = ({music}) => {
       <div class='flex w-full md:w-8/12  bg-white shadow-md rounded-lg overflow-hidden mx-auto'>
         <div class="flex flex-col w-full">
           <div class="flex p-5 border-b">
-              <img class='w-20 h-20 object-cover' alt='User avatar' src='https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200'/>
+              <img class='w-20 h-20 object-cover' alt='User avatar' src={`${track && results.tracks[0].album.images[2].url}`}/>
               <div class="flex flex-col px-2 w-full">
                   <span class="text-xs text-gray-700 uppercase font-medium ">
                       now playing
                   </span>
                   <span class="text-sm text-red-500 capitalize font-semibold pt-1">
-                    I think I need a sunrise, I'm tired of the sunset    
+                    {track && results.tracks[0].name} 
                   </span>
                   <span class="text-xs text-gray-500 uppercase font-medium ">
-                      -"Boston," Augustana
+                      {track && results.tracks[0].artists[0].name}
                   </span>
                 
               </div>
@@ -95,11 +132,11 @@ const Player = ({music}) => {
                 </div>
                 <div class="relative w-full sm:w-1/2 md:w-7/12 lg:w-4/6 ml-2">
                     <div class="bg-red-300 h-2 w-full rounded-lg"></div>
-                    <div class="bg-red-500 h-2 w-1/2 rounded-lg absolute top-0"></div>
+                    <div class={`bg-red-500 h-2 w-[${barPercentage}%] rounded-lg absolute top-0`}></div>
                 </div>
                 <div class="flex justify-end w-full sm:w-auto pt-1 sm:pt-0">
                     <span class="text-xs text-gray-700 uppercase font-medium pl-2">
-                    02:00/04:00                   
+                    {currentTime + "/"+duration}                 
                     </span>
                 </div>
                 
