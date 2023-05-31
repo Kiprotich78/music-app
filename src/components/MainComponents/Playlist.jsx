@@ -45,7 +45,7 @@ const Playlist = ({playListId, setMusic}) => {
           return (
             <div onClick={()=> setMusic(track.track.id)} className='flex items-center px-2 gap-4 py-1 cursor-pointer'>
               <p>{index + 1}</p>
-              <img className='h-16 rounded-lg ' src={`https://i.scdn.co/image/ab67706f000000030aeffe3c70cc3b633199a005`} alt="" />
+              <img className='h-16 rounded-lg ' src={track.track.album.images[2].url} alt="" />
               <div>
                 <p className='text-xl'>{track.track.name}</p>
                 <p className='text-gray-600'>{track.track.artists[0].name}</p>
