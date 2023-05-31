@@ -35,8 +35,8 @@ const Playlist = ({playListId, setMusic}) => {
 
 
   return (
-    <div className='py-3 w-full h-full bg-slate-400 rounded-md px-2 flex flex-col'>
-      <h1 className='text-xl font-[600] underline my-3'>Playlist</h1>
+    <div className='py-3 w-full h-full bg-slate-400 bg-opacity-40 rounded-md px-2 flex flex-col'>
+      <h1 className='text-xl font-[600] underline my-3 text-center text-gray-700'>Playlist</h1>
       <div className='flex-1 overflow-y-auto'>
         {playListTracks && playListTracks.map((track, index)=>{
           if(index==1){

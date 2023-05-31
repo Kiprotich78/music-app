@@ -8,11 +8,11 @@ const Main = ({addSidebar}) => {
   
 
   return (
-    <main className='h-full flex flex-col relative'>
-      <section className='h-[7vh]'>
+    <main className='h-full flex flex-col relative w-full'>
+      <section className='h-[7vh] w-full'>
         <Header addSidebar={addSidebar}/>
       </section>
-      <section className='max-h-[93vh]'>
+      <section className='h-[93vh] w-full'>
         <Body setMusic={setMusic} music={music}/>
       </section>
 
