@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const Genre = ({setPlaylistId}) => {
+const Genre = ({setPlaylistId, setPlaylistActive}) => {
   const [genres, setGenres] = useState([]);
 
   const getGenres = async ()=>{
@@ -36,7 +36,7 @@ const Genre = ({setPlaylistId}) => {
         {genres.length && genres[1].content.items.map((item)=>{
             return (
             
-              <div onClick={()=> setPlaylistId(item.id)} className='cursor-pointer min-w-max'>
+              <div onClick={()=> {setPlaylistId(item.id); setPlaylistActive(true);}} className='cursor-pointer min-w-max'>
                 <img className='h-52 rounded-xl' src={item.images[0].url} alt="genre image" />
                 <p>{item.name}</p>
               </div>

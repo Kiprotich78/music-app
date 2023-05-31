@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import {IoChevronBackSharp} from 'react-icons/io5'
 
-const Playlist = ({playListId, setMusic}) => {
+const Playlist = ({playListId, setMusic, setPlaylistActive}) => {
   const [playListTracks, setPlaListTracks] = useState([]);
 
 
@@ -35,7 +36,7 @@ const Playlist = ({playListId, setMusic}) => {
 
 
   return (
-    <div className='py-3 w-full h-full bg-slate-400 bg-opacity-40 rounded-md px-2 flex flex-col'>
+    <div className='py-3 w-full h-full bg-pink-300 md:bg-slate-400 md:bg-opacity-40 rounded-md px-2 flex flex-col relative'>
       <h1 className='text-xl font-[600] underline my-3 text-center text-gray-700'>Playlist</h1>
       <div className='flex-1 overflow-y-auto'>
         {playListTracks && playListTracks.map((track, index)=>{
@@ -53,6 +54,10 @@ const Playlist = ({playListId, setMusic}) => {
             </div>
           )
         })}
+      </div>
+
+      <div onClick={()=> setPlaylistActive(false)} className='absolute top-3 left-3 text-3xl font-bold bg-gray-200 h-8 w-8 flex items-center justify-center rounded-full'>
+        <IoChevronBackSharp />
       </div>
       
     </div>
