@@ -67,7 +67,7 @@ const Player = ({music}) => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '360c5429ffmshdaaed81453f5cdfp130982jsn4bdc1a9eca17',
+        'X-RapidAPI-Key': 'e4b2b189eemshd345243acd1cdcfp148bbfjsnd99f5796b8bc',
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
