@@ -30,14 +30,14 @@ const Genre = ({setPlaylistId}) => {
 
 
   return (
-    <div className='bg-gray-200 bg-opacity-20 p-4 w-screen md:w-[1000px]'>
+    <div className='bg-gray-200 bg-opacity-20 p-4 rounded-md'>
       <h2 className='text-2xl font-bold'>Genre</h2>
-      <div className='flex gap-5 overflow-x-auto border w-full'>
+      <div className='flex gap-5 overflow-x-auto w-full'>
         {genres.length && genres[1].content.items.map((item)=>{
             return (
             
               <div onClick={()=> setPlaylistId(item.id)} className='cursor-pointer min-w-max'>
-                <img className='h-64 rounded-xl' src={item.images[0].url} alt="genre image" />
+                <img className='h-52 rounded-xl' src={item.images[0].url} alt="genre image" />
                 <p>{item.name}</p>
               </div>
             
