@@ -7,7 +7,7 @@ const Body = ({setMusic, music}) => {
 
   
   return (
-    <div className='h-full '>
+    <div className='h-full w-full'>
       <Routes>
         <Route path='/' element={<Home setMusic={setMusic} music={music} />}/>
         <Route path='/home' element={<Home setMusic={setMusic} music={music} />}/>

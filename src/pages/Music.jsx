@@ -26,7 +26,7 @@ const Music = () => {
       <div className={`absolute ${showSideBar?"translate-x-0" : "-translate-x-full"} w-full md:translate-x-0 md:static md:w-64 h-full transition-all z-20`}>
         <SideBar removeSidebar={removeSidebar} handleActivePage={handleActivePage} activeSection={activeSection}/>
       </div>
-      <div className='flex-1 h-full'>
+      <div className='main-width h-full'>
         <Main addSidebar={addSidebar}/>
       </div>
     </section>
