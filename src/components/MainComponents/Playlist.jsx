@@ -56,7 +56,7 @@ const Playlist = ({playListId, setMusic, setPlaylistActive}) => {
         })}
       </div>
 
-      <div onClick={()=> setPlaylistActive(false)} className='absolute top-3 left-3 text-3xl font-bold bg-gray-200 h-8 w-8 flex items-center justify-center rounded-full'>
+      <div onClick={()=> setPlaylistActive(false)} className='lg:hidden absolute top-3 left-3 text-3xl font-bold bg-gray-200 h-8 w-8 flex items-center justify-center rounded-full'>
         <IoChevronBackSharp />
       </div>
       

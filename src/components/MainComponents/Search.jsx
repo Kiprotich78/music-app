@@ -12,11 +12,11 @@ const Search = ({setMusic, music}) => {
 
   const search = async (e)=>{
     e.preventDefault();
-    const url = `https://spotify23.p.rapidapi.com/search/?q=${searchParam}&type=tracks&offset=0&limit=10&numberOfTopResults=5`;
+    const url = `https://spotify23.p.rapidapi.com/search/?q=${searchParam}&type=tracks&offset=0&limit=20&numberOfTopResults=5`;
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '360c5429ffmshdaaed81453f5cdfp130982jsn4bdc1a9eca17',
+        'X-RapidAPI-Key': 'e4b2b189eemshd345243acd1cdcfp148bbfjsnd99f5796b8bc',
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
