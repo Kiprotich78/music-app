@@ -13,7 +13,7 @@ const Main = ({addSidebar}) => {
         <Header addSidebar={addSidebar}/>
       </section>
       <section className='max-h-[93vh]'>
-        <Body setMusic={setMusic}/>
+        <Body setMusic={setMusic} music={music}/>
       </section>
 
       <section className={`${music? "": "hidden"} absolute bottom-2 w-full h-48`}>

@@ -1,12 +1,12 @@
 import React from 'react'
 import Search from './Search'
 
-const Body = ({setMusic}) => {
+const Body = ({setMusic, music}) => {
 
   
   return (
     <div className='h-full '>
-      <Search setMusic={setMusic}/>
+      <Search setMusic={setMusic} music={music}/>
       
     </div>
   )
