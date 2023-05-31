@@ -60,7 +60,7 @@ const Search = ({setMusic, music}) => {
       <div className={`flex-1 w-screen md:w-full px-3 md:px-10 overflow-y-auto`}>
         <div class={`antialiased font-sans min-w-full ${music? "pb-36" : ""}`}>
             <div class="py-8">
-                <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4">
+                <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 min-w-[460px]">
                     <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                         <table class="min-w-full leading-normal">
                             <thead>
