@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Main from '../components/Main';
 import SideBar from '../components/SideBar';
+import Footer from '../components/MainComponents/footer';
 import { useNavigate } from 'react-router-dom';
 const Music = () => {
   const navigate = useNavigate();
@@ -22,14 +23,15 @@ const Music = () => {
   }
 
   return (
-    <section className='w-screen h-screen bg-gradient-to-b from-pink-300 to-pink-700 flex overflow-hidden'>
-      <div className={`absolute ${showSideBar?"translate-x-0" : "-translate-x-full"} w-full md:translate-x-0 md:static md:w-64 h-full transition-all z-20`}>
-        <SideBar removeSidebar={removeSidebar} handleActivePage={handleActivePage} activeSection={activeSection}/>
+    <><section className='w-screen h-screen bg-gradient-to-b from-pink-300 to-pink-700 flex'>
+      <div className={`absolute ${showSideBar ? "translate-x-0" : "-translate-x-full"} w-full md:translate-x-0 md:static md:w-64 h-full transition-all z-20`}>
+        <SideBar removeSidebar={removeSidebar} handleActivePage={handleActivePage} activeSection={activeSection} />
       </div>
       <div className='flex-1 h-full'>
-        <Main addSidebar={addSidebar}/>
+        <Main addSidebar={addSidebar} />
       </div>
-    </section>
+
+    </section><Footer /></>
   )
 }
 
