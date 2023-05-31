@@ -16,7 +16,7 @@ const Main = ({addSidebar}) => {
         <Body setMusic={setMusic} music={music}/>
       </section>
 
-      <section className={`${music? "": "hidden"} absolute bottom-2 w-full h-48`}>
+      <section className={`${music? "": "hidden"} absolute bottom-2 w-full h-48 z-40`}>
         <Player music={music}/>
       </section>
     </main>
