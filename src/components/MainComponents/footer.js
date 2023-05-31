@@ -10,8 +10,7 @@ function Footer() {
       <div className="container">
         <TextStyle className="footer__text">
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s.
+          industry. 
         </TextStyle>
         <ul className="footer__social">
           {Socials.map((item) => (
