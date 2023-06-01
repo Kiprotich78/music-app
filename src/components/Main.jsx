@@ -4,7 +4,7 @@ import Body from './MainComponents/Body';
 import Player from './MainComponents/Player';
 
 const Main = ({addSidebar}) => {
-  const [music, setMusic] = useState("true");
+  const [music, setMusic] = useState("");
   
 
   return (

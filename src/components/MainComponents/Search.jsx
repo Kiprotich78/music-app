@@ -16,7 +16,7 @@ const Search = ({setMusic, music}) => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': 'e4b2b189eemshd345243acd1cdcfp148bbfjsnd99f5796b8bc',
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
