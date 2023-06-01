@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const Player = ({music}) => {
+const Player = ({music, musicUrl, setMusicUrl, musicDetails}) => {
   const [play, setPlay] = useState(true);
   const [track, setTrack] = useState("");
   const [results, setResults] = useState({})
@@ -18,18 +18,17 @@ const Player = ({music}) => {
     setPlay(true);
   }
 
-  const playMusic = (music)=>{
+  const playMusic = (myAudio)=>{
     if(track){
-      track.pause();
+      pauseAudio();
     }
 
-    const audio = new Audio(music);
+    const audio = new Audio(myAudio);
     audio.play();
     setPlay(true);
 
     setTrack(audio);
 
-   
     audio.ontimeupdate = () => {
       const duration = audio.duration.toFixed(0);
       const durminutes = Math.floor(duration / 60);
@@ -77,6 +76,7 @@ const Player = ({music}) => {
       const res = await response.json();
       console.log(res);
       setResults(res);
+      setMusicUrl("")
       playMusic(res.tracks[0].preview_url);
     } catch (error) {
       console.error(error);
@@ -85,9 +85,23 @@ const Player = ({music}) => {
   }
 
   useEffect(()=>{
-    music && getTrack();
+    if(music){
+      getTrack();
+      console.log("fetched song form id")
+    }
 
+    
+    
   }, [music]);
+
+  useEffect(()=>{
+    if(musicUrl){
+      playMusic(musicUrl);
+      setResults(musicDetails);
+      console.log("music url")
+    }
+
+  }, [musicUrl])
 
   function truncateWordOnSmallScreens(word, maxLength) {
     const screenWidth = window.innerWidth || document.documentElement.clientWidth;
