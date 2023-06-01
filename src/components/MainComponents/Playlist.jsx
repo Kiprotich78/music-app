@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {IoChevronBackSharp} from 'react-icons/io5'
+import ApiKey from '../../accessToken'
+
 
 const Playlist = ({playListId, playListImg, playListName, setMusic, setPlaylistActive}) => {
   const [playListTracks, setPlaListTracks] = useState([]);
@@ -10,7 +12,7 @@ const Playlist = ({playListId, playListImg, playListName, setMusic, setPlaylistA
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY || ApiKey.apiKey,
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };

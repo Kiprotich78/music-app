@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 
-const favoritesSongs = ["0V3wPSX9ygBnCm8psDIegu", "1vYZywcjdbPUnsEP43it0q", "224jZ4sUX7OhAuMwaxp86S", "2V8JCAL5fAYIuetBGKfj7X", "7tk9ZylxkJReNIavPPhqzj", "6wzgVq5ziHmiqOF9GZpljh"];
+// const favoritesSongs = ["0V3wPSX9ygBnCm8psDIegu", "1vYZywcjdbPUnsEP43it0q", "224jZ4sUX7OhAuMwaxp86S", "2V8JCAL5fAYIuetBGKfj7X", "7tk9ZylxkJReNIavPPhqzj", "6wzgVq5ziHmiqOF9GZpljh"];
 
 const favoritesSongsJsonArray = [
   {
@@ -400,7 +400,7 @@ const favoritesSongsJsonArray = [
 
 
 const Trending = ({setMusicUrl, setMusicDetails}) => {
-  const [favoritesArray, setFavoritesArray] = useState() 
+  // const [favoritesArray, setFavoritesArray] = useState() 
 
   // const getFavorites = async (id)=>{
   //   const url = `https://spotify23.p.rapidapi.com/tracks/?ids=${id}`;

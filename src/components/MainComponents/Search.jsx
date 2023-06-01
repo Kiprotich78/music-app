@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ApiKey from '../../accessToken'
 
 const Search = ({setMusic, music}) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -16,7 +17,7 @@ const Search = ({setMusic, music}) => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY || ApiKey.apiKey,
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
