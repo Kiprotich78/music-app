@@ -56,7 +56,7 @@ const Playlist = ({playListId, playListImg, playListName, setMusic, setPlaylistA
           )
         })}
       </div>
-      <div className='h-64 p-5 bg-gray-600 bg-opacity-50 rounded-3xl'>
+      <div className='h-40 md:h-64 p-5 bg-gray-600 bg-opacity-50 rounded-3xl'>
         <img className='block mx-auto h-[90%] rounded-3xl' src={playListImg} alt="plalist Image" />
         <p className='text-gray-200 text-center text-xl font-bold'>{playListName}</p>
       </div>
