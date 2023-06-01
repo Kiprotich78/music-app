@@ -252,7 +252,7 @@ const Artists = () => {
   //   const options = {
   //     method: 'GET',
   //     headers: {
-  //       'X-RapidAPI-Key': '06e5aaefacmsh981eba1dd52e09ep1121f3jsnbb792bd18698',
+  //       'X-RapidAPI-Key': process.env.RAPID_API_KEY,
   //       'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
   //     }
   //   };
