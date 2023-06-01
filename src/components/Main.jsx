@@ -4,7 +4,7 @@ import Body from './MainComponents/Body';
 import Player from './MainComponents/Player';
 
 const Main = ({addSidebar}) => {
-  const [music, setMusic] = useState("");
+  const [music, setMusic] = useState("true");
   
 
   return (
@@ -16,7 +16,7 @@ const Main = ({addSidebar}) => {
         <Body setMusic={setMusic} music={music}/>
       </section>
 
-      <section className={`${music? "": "hidden"} absolute bottom-2 w-full h-48 z-40`}>
+      <section className={`${music? "": "hidden"} absolute bottom-0 w-full h-max z-40`}>
         <Player music={music}/>
       </section>
     </main>

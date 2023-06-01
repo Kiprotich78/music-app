@@ -91,11 +91,11 @@ const Player = ({music}) => {
 
 
   return (
-    <div class="w-full">
-      <div class='flex w-full md:w-8/12  bg-white  shadow-md rounded-lg overflow-hidden mx-2'>
-        <div class="flex flex-col w-full">
-          <div class="flex p-5 border-b">
-              <img class='w-20 h-20 object-cover' alt='User avatar' src={`${track && results.tracks[0].album.images[2].url}`}/>
+    <div class="w-full px-2">
+      <div class='flex w-full md:w-8/12  bg-white  shadow-md rounded-lg overflow-hidden md:mx-2'>
+        <div class="flex w-full">
+          <div class="flex p-1 border-b">
+              <img class='w-16 h-16 object-cover rounded-md' alt='User avatar' src={`${track && results.tracks[0].album.images[2].url}`}/>
               <div class="flex flex-col px-2 w-full">
                   <span class="text-xs text-gray-700 uppercase font-medium ">
                       now playing
@@ -110,7 +110,7 @@ const Player = ({music}) => {
               </div>
           </div>
 
-            <div class="flex flex-col sm:flex-row items-center p-5">
+            <div class="flex-1 flex sm:flex-row items-center">
               <div class="flex items-center">
                 <div class="flex space-x-3 p-2">
                   <button class="focus:outline-none">
@@ -130,7 +130,7 @@ const Player = ({music}) => {
                   </button>
                 </div>
                 </div>
-                <div class="relative w-full sm:w-1/2 md:w-7/12 lg:w-4/6 ml-2">
+                <div class="hidden md:block relative w-full sm:w-1/2 md:w-7/12 lg:w-4/6 ml-2">
                     <div class="bg-red-300 h-2 w-full rounded-lg"></div>
                     <div class={`bg-red-500 h-2 w-[${barPercentage}%] rounded-lg absolute top-0`}></div>
                 </div>
