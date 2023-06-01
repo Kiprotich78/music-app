@@ -5,6 +5,10 @@ import Music from './pages/Music';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
+
+  const apiKey = process.env.RAPID_API_KEY;
+  console.log("rapid_api_key = ", apiKey);
+
   return (
     <>  
       <Routes>
