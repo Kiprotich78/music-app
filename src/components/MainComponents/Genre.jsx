@@ -27,7 +27,7 @@ const Genre = ({handlePlaylist}) => {
 
 
   useEffect(()=>{
-   //getGenres();
+   getGenres();
   }, [])
 
 
