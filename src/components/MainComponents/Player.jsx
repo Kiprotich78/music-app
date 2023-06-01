@@ -89,19 +89,34 @@ const Player = ({music}) => {
 
   }, [music]);
 
+  function truncateWordOnSmallScreens(word, maxLength) {
+    const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+  
+    if (screenWidth <= 560) {
+      if (word.length <= maxLength) {
+        return word;
+      } else {
+        return word.substring(0, maxLength) + '...';
+      }
+    }
+  
+    return word;
+  }
+  
+  
 
   return (
     <div class="w-full md:px-2">
       <div class='flex w-full md:w-8/12  bg-white  shadow-md rounded-lg overflow-hidden md:mx-2 px-1'>
         <div class="flex w-full">
-          <div class="flex md:p-1 border-b">
+          <div class="flex md:p-1 border-b items-center">
               <img class='w-16 h-16 object-cover rounded-md' alt='User avatar' src={`${track && results.tracks[0].album.images[2].url}`}/>
               <div class="flex flex-col px-2 w-full">
                   <span class="text-xs text-gray-700 uppercase font-medium ">
                       now playing
                   </span>
                   <span class="text-sm text-red-500 capitalize font-semibold pt-1">
-                    {track && results.tracks[0].name} 
+                    {track && truncateWordOnSmallScreens(results.tracks[0].name, 10)} 
                   </span>
                   <span class="text-xs text-gray-500 uppercase font-medium ">
                       {track && results.tracks[0].artists[0].name}

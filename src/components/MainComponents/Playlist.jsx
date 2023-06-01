@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {IoChevronBackSharp} from 'react-icons/io5'
 
-const Playlist = ({playListId, setMusic, setPlaylistActive}) => {
+const Playlist = ({playListId, playListImg, playListName, setMusic, setPlaylistActive}) => {
   const [playListTracks, setPlaListTracks] = useState([]);
 
 
@@ -19,6 +19,7 @@ const Playlist = ({playListId, setMusic, setPlaylistActive}) => {
       const response = await fetch(url, options);
       const result = await response.json();
       setPlaListTracks(result.items)
+      console.log(result)
       
     } catch (error) {
       console.error(error);
@@ -54,6 +55,10 @@ const Playlist = ({playListId, setMusic, setPlaylistActive}) => {
             </div>
           )
         })}
+      </div>
+      <div className='h-40 md:h-64 p-5 bg-gray-600 bg-opacity-50 rounded-3xl'>
+        <img className='block mx-auto h-[90%] rounded-3xl' src={playListImg} alt="plalist Image" />
+        <p className='text-gray-200 text-center text-xl font-bold'>{playListName}</p>
       </div>
 
       <div onClick={()=> setPlaylistActive(false)} className='lg:hidden absolute top-3 left-3 text-3xl font-bold bg-gray-200 h-8 w-8 flex items-center justify-center rounded-full'>

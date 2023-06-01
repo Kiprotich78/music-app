@@ -1,7 +1,6 @@
 import React from 'react'
 import {SlHome} from 'react-icons/sl'
 import {BsSearch} from 'react-icons/bs'
-import {AiOutlineFileSearch} from 'react-icons/ai'
 
 const SideBar = ({removeSidebar, handleActivePage, activeSection}) => {
   return (
@@ -15,10 +14,7 @@ const SideBar = ({removeSidebar, handleActivePage, activeSection}) => {
           <BsSearch /> 
           <span>Search</span>
         </p>
-        <p onClick={()=> handleActivePage('explore')} className={`${activeSection==='explore'? "bg-slate-300 bg-opacity-50": ""} flex text-xl rounded-md items-center gap-6 pl-10 py-2 my-2  hover:bg-slate-300 hover:bg-opacity-30 hover:text-black transition-all cursor-pointer`}>
-          <AiOutlineFileSearch /> 
-          <span>Explore</span>
-        </p>
+       
       </div>
 
       <div onClick={removeSidebar} className='absolute top-6 right-6 h-10 w-10 cursor-pointer md:hidden'>
