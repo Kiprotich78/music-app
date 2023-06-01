@@ -91,10 +91,10 @@ const Player = ({music}) => {
 
 
   return (
-    <div class="w-full px-2">
-      <div class='flex w-full md:w-8/12  bg-white  shadow-md rounded-lg overflow-hidden md:mx-2'>
+    <div class="w-full md:px-2">
+      <div class='flex w-full md:w-8/12  bg-white  shadow-md rounded-lg overflow-hidden md:mx-2 px-1'>
         <div class="flex w-full">
-          <div class="flex p-1 border-b">
+          <div class="flex md:p-1 border-b">
               <img class='w-16 h-16 object-cover rounded-md' alt='User avatar' src={`${track && results.tracks[0].album.images[2].url}`}/>
               <div class="flex flex-col px-2 w-full">
                   <span class="text-xs text-gray-700 uppercase font-medium ">
