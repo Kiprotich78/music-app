@@ -118,8 +118,8 @@ const Player = ({music, musicUrl, setMusicUrl, musicDetails}) => {
   
 
   return (
-    <div class="w-full md:px-2">
-      <div class='flex w-full md:w-8/12  bg-white  shadow-md rounded-lg overflow-hidden md:mx-2 px-1'>
+    <div class="w-full md:px-2 md:pr-4">
+      <div class='flex w-full bg-white  shadow-md rounded-lg overflow-hidden px-1'>
         <div class="flex w-full">
           <div class="flex md:p-1 border-b items-center">
               <img class='w-16 h-16 object-cover rounded-md' alt='User avatar' src={`${track && results.tracks[0].album.images[2].url}`}/>

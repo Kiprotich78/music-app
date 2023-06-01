@@ -19,7 +19,7 @@ const Home = ({setMusic, setMusicUrl, setMusicDetails}) => {
 
     return (
         <div className='h-full relative flex w-full'>
-            <section className='flex-1 flex flex-col gap-5 h-[93vh] w-full calc-genre-w py-3 px-2 rounded-md overflow-hidden overflow-y-auto pb-16'>
+            <section className='flex-1 flex flex-col gap-5 h-[93vh] w-full calc-genre-w py-3 px-2 rounded-md overflow-hidden overflow-y-auto pb-20'>
                 <Genre handlePlaylist={handlePlaylist} />
                 <Trending setMusicUrl={setMusicUrl} setMusicDetails={setMusicDetails}/>
                 <Artists />

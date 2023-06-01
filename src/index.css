@@ -31,6 +31,19 @@
     }
 }
 
+@media (min-width: 768px) {
+  .calc-player-width{
+      max-width: calc(100vw - 256px);
+      width: calc(100vw - 256px);
+  }
+}
+@media (min-width: 1024px) {
+  .calc-player-width{
+      max-width: calc(100vw - 650px);
+      width: calc(100vw - 650px);
+  }
+}
+
 /* For Webkit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
     width: 0.25rem;
