@@ -45,7 +45,7 @@ const Player = ({music, musicUrl, setMusicUrl, musicDetails}) => {
       setCurrentTime(`${minutes < 10 ? "0" + minutes: minutes}:${seconds < 10 ? "0"+seconds : seconds}`);
 
       if(currentTime === duration){
-        pauseAudio();
+        setPlay(false);
       }
 
 
@@ -90,8 +90,6 @@ const Player = ({music, musicUrl, setMusicUrl, musicDetails}) => {
       console.log("fetched song form id")
     }
 
-    
-    
   }, [music]);
 
   useEffect(()=>{
