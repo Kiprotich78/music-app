@@ -6,11 +6,11 @@ const SideBar = ({removeSidebar, handleActivePage, activeSection}) => {
   return (
     <div className='flex items-center justify-center md:block h-full w-full bg-pink-600 relative'>
       <div className='p-3 text-gray-200'>
-        <p onClick={()=> handleActivePage('home')} className={`${activeSection==='home'? "bg-slate-300 bg-opacity-50": ""} flex text-xl rounded-md items-center gap-6 pl-10 py-2 my-2 hover:bg-slate-300 hover:bg-opacity-30 hover:text-black transition-all cursor-pointer`}>
+        <p onClick={()=> {handleActivePage('home'); removeSidebar()}} className={`${activeSection==='home'? "bg-slate-300 bg-opacity-50": ""} flex text-xl rounded-md items-center gap-6 pl-10 py-2 my-2 hover:bg-slate-300 hover:bg-opacity-30 hover:text-black transition-all cursor-pointer`}>
           <SlHome /> 
           <span>Home</span>
         </p>
-        <p onClick={()=> handleActivePage('search')} className={`${activeSection==='search'? "bg-slate-300 bg-opacity-50": ""} flex text-xl rounded-md items-center gap-6 pl-10 py-2 my-2 hover:bg-slate-300 hover:bg-opacity-30 hover:text-black transition-all cursor-pointer`}>
+        <p onClick={()=> {handleActivePage('search'); removeSidebar()}} className={`${activeSection==='search'? "bg-slate-300 bg-opacity-50": ""} flex text-xl rounded-md items-center gap-6 pl-10 py-2 my-2 hover:bg-slate-300 hover:bg-opacity-30 hover:text-black transition-all cursor-pointer`}>
           <BsSearch /> 
           <span>Search</span>
         </p>

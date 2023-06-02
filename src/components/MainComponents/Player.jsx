@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import ApiKey from '../../accessToken'
 
-const Player = ({music}) => {
+const Player = ({music, musicUrl, setMusicUrl, musicDetails}) => {
   const [play, setPlay] = useState(true);
   const [track, setTrack] = useState("");
   const [results, setResults] = useState({})
@@ -18,18 +19,17 @@ const Player = ({music}) => {
     setPlay(true);
   }
 
-  const playMusic = (music)=>{
+  const playMusic = (myAudio)=>{
     if(track){
-      track.pause();
+      pauseAudio();
     }
 
-    const audio = new Audio(music);
+    const audio = new Audio(myAudio);
     audio.play();
     setPlay(true);
 
     setTrack(audio);
 
-   
     audio.ontimeupdate = () => {
       const duration = audio.duration.toFixed(0);
       const durminutes = Math.floor(duration / 60);
@@ -46,7 +46,7 @@ const Player = ({music}) => {
       setCurrentTime(`${minutes < 10 ? "0" + minutes: minutes}:${seconds < 10 ? "0"+seconds : seconds}`);
 
       if(currentTime === duration){
-        pauseAudio();
+        setPlay(false);
       }
 
 
@@ -67,7 +67,7 @@ const Player = ({music}) => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY || ApiKey.apiKey,
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
@@ -77,6 +77,7 @@ const Player = ({music}) => {
       const res = await response.json();
       console.log(res);
       setResults(res);
+      setMusicUrl("")
       playMusic(res.tracks[0].preview_url);
     } catch (error) {
       console.error(error);
@@ -85,9 +86,21 @@ const Player = ({music}) => {
   }
 
   useEffect(()=>{
-    music && getTrack();
+    if(music){
+      getTrack();
+      console.log("fetched song form id")
+    }
 
   }, [music]);
+
+  useEffect(()=>{
+    if(musicUrl){
+      playMusic(musicUrl);
+      setResults(musicDetails);
+      console.log("music url")
+    }
+
+  }, [musicUrl])
 
   function truncateWordOnSmallScreens(word, maxLength) {
     const screenWidth = window.innerWidth || document.documentElement.clientWidth;
@@ -106,8 +119,8 @@ const Player = ({music}) => {
   
 
   return (
-    <div class="w-full md:px-2">
-      <div class='flex w-full md:w-8/12  bg-white  shadow-md rounded-lg overflow-hidden md:mx-2 px-1'>
+    <div class="w-full md:px-2 md:pr-4">
+      <div class='flex w-full bg-white  shadow-md rounded-lg overflow-hidden px-1'>
         <div class="flex w-full">
           <div class="flex md:p-1 border-b items-center">
               <img class='w-16 h-16 object-cover rounded-md' alt='User avatar' src={`${track && results.tracks[0].album.images[2].url}`}/>

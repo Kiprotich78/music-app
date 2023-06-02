@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ApiKey from '../../accessToken'
 
 const Genre = ({handlePlaylist}) => {
   const [genres, setGenres] = useState([]);
@@ -8,7 +9,7 @@ const Genre = ({handlePlaylist}) => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY || ApiKey.apiKey,
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
