@@ -3,18 +3,13 @@ import React from 'react';
 
 export const Socials = [
   {
-    name: 'Twitter',
-    url: 'https://twitter.com/Johnmiskyjm',
-    icon: <FaTwitter />,
-  },
-  {
     name: 'Linked-In',
-    url: 'https://www.linkedin.com/in/john-migwi-62996621b/',
+    url: 'https://www.linkedin.com/in/kiprotich-shadrack-230867221/',
     icon: <FaLinkedin />,
   },
   {
     name: 'Github',
-    url: 'https://github.com/JohnMigwi',
+    url: 'https://github.com/kiprotich78',
     icon: <FaGithub />,
   },
 ];

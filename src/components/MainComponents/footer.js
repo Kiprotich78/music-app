@@ -9,8 +9,7 @@ function Footer() {
     <FooterStyles>
       <div className="container">
         <TextStyle className="footer__text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. 
+        Welcome to the rhythm of life. Let music be your escape, your inspiration, and your companion on this incredible journey. Tune in, turn it up, and let the melodies transport you to new heights of emotion and joy. Discover the beauty of diverse genres, unite with fellow music lovers, and let the power of harmonies and lyrics touch your soul. Remember, in the world of music, there are no boundaries – only endless possibilities. Enjoy the symphony of sounds and make every moment a musical masterpiece.
         </TextStyle>
         <ul className="footer__social">
           {Socials.map((item) => (
@@ -20,7 +19,7 @@ function Footer() {
           ))}
         </ul>
         <TextStyle className="copy">
-          @Music {new Date().getFullYear()} © John, Kipro
+          @Music {new Date().getFullYear()} © Kiprotich
         </TextStyle>
       </div>
     </FooterStyles>
